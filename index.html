@@ -1,0 +1,2261 @@
+<!DOCTYPE html><html><head>
+      <title>crafting-tables</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////root/.vscode-server/extensions/shd101wyy.markdown-preview-enhanced-0.8.24/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-details{margin:0;padding:0;border:none}.markdown-preview .md-toc summary.md-toc-link-wrapper{cursor:pointer;list-style-position:outside}.markdown-preview .md-toc summary.md-toc-link-wrapper::marker{font-size:.85em}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='0']{margin-left:12px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='1']{margin-left:28px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='2']{margin-left:44px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='3']{margin-left:60px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='4']{margin-left:76px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='5']{margin-left:80px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-details{margin:0;padding:0;border:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='0']{padding-left:0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='1']{padding-left:16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='2']{padding-left:32px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='3']{padding-left:48px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='4']{padding-left:64px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='5']{padding-left:80px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script>
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="barotrauma-合成表">Barotrauma 合成表 </h1>
+<p>这些表格直接整理自官方 wiki。只保留中文显示名，物品名、材料和解构产物在源表提供链接时，仍跳转到官方英文 wiki 原页。</p>
+<h2 id="加工台物品">加工台物品 </h2>
+<p>来源：<a href="https://barotraumagame.com/wiki/Fabricator_%26_Deconstructor#Fabricator_Items">加工台物品</a></p>
+<h3 id="基础材料与工业制品">基础材料与工业制品 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Battery_Cell">电池</a></td>
+<td><a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x2) <a href="https://barotraumagame.com/wiki/Lithium">锂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 25 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Zinc">锌</a> <a href="https://barotraumagame.com/wiki/Lithium">锂</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Fulgurium_Battery_Cell">雷素电池</a></td>
+<td><a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x2) <a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 40 15</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Zinc">锌</a> <a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Hardened_Wrench">硬化扳手</a></td>
+<td><a href="https://barotraumagame.com/wiki/Wrench">扳手</a> <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a> x2</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 天赋：<a href="https://barotraumagame.com/wiki/Heavy_Hitter">重拳出击</a> 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Fertilizer">肥料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Uranium">铀</a> <a href="https://barotraumagame.com/wiki/Carbon">碳</a> <a href="https://barotraumagame.com/wiki/Salt_Vine_Seed">盐木鳞种子</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 20 45</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Uranium">铀</a> (&gt;=90%<em>) <a href="https://barotraumagame.com/wiki/Carbon">碳</a> (&gt;=90%</em>)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Cargo_Scooter">载货推进器</a></td>
+<td><a href="https://barotraumagame.com/wiki/Underwater_Scooter">水下助推器</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Sample_Collection">样品收集</a> 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> <a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Dirty_Bomb">脏弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/UEX">UEX</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a> <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/C-4_Block">C-4炸药</a></td>
+<td><a href="https://barotraumagame.com/wiki/UEX">UEX</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 70 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Pipe_Tobacco">烟丝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Tobacco_Bud">烟草芽</a> x3</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Helm">驾驶水平</a> 30 20</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Tobacco_Bud">烟草芽</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a></td>
+<td><a href="https://barotraumagame.com/wiki/Titanium">钛</a> <a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 5</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium">钛</a> (%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (%)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="潜水装备-近战与基础装具">潜水装备、近战与基础装具 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Diving_Suit">潜水服</a></td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> (x2)（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 40 30</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Advanced_Syringe_Gun">高级注射器枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> <a href="https://barotraumagame.com/wiki/Aluminum">铝</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 50 天赋：<a href="https://barotraumagame.com/wiki/Delivery_System">运输系统</a> 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Exosuit">外骨骼</a></td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x4) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> (x3)（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 60 天赋：<a href="https://barotraumagame.com/wiki/MECHanic">机甲师</a> 45</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x3) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> (x2)（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Handcannon">手炮</a></td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x3) <a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 60 天赋：<a href="https://barotraumagame.com/wiki/Big_Guns">重炮手</a> 70</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2) <a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Boarding_Axe">登船斧</a></td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Boarding_Party">登船小队</a> 25</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Ceremonial_Sword">仪式用剑</a></td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Graduation_Ceremony">毕业典礼</a> 30</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Stun_Gun_Dart">电击枪飞镖</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Wire">导线（任意）</a>（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>5</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Nuclear_Railgun_Shell">轨道炮核弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a> <a href="https://barotraumagame.com/wiki/IC-4_Block">IC-4炸药</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 30</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a> <a href="https://barotraumagame.com/wiki/Incendium_Crystal">燃素水晶</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Heavy_Wrench">重型扳手</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Titanium">钛</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 天赋：<a href="https://barotraumagame.com/wiki/I_Am_That_Guy">那个人</a> 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Titanium">钛</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Fixfoam_Grenade">固化泡沫手榴弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Sodium">钠</a> <a href="https://barotraumagame.com/wiki/Phosphorus">磷</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 35 天赋：<a href="https://barotraumagame.com/wiki/Hull_Fixer">船体修理</a> 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Sodium">钠</a> (100%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Coilgun_Harpoon_Box">电磁枪鱼叉盒</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a> <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Fuel_Rod">铀燃料棒</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 25 15</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a> (&gt;95%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Thorium_Fuel_Rod">钍燃料棒</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> x2 <a href="https://barotraumagame.com/wiki/Thorium">钍</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 50 15</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> <a href="https://barotraumagame.com/wiki/Thorium">钍</a> (&gt;95%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Volatile_Fulgurium_Fuel_Rod">挥发性雷素燃料棒</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> x2 <a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> <a href="https://barotraumagame.com/wiki/Thorium">钍</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 70 天赋：<a href="https://barotraumagame.com/wiki/Danger_Zone">危险区</a> 25</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> <a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> (&gt;95%) <a href="https://barotraumagame.com/wiki/Thorium">钍</a> (&gt;95%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Fulgurium_Fuel_Rod">雷素燃料棒</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> x2 <a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 60 15</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> <a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> (&gt;95%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Railgun_Shell">轨道炮炮弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Iron">铁</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Nuclear_Railgun_Shell">轨道炮核弹（廉价）</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Fuel_Rod">铀燃料棒</a> (&gt;80%) <a href="https://barotraumagame.com/wiki/UEX">UEX</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Nuclear_Option">世界核平</a> 30</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Boarding_Pod">登船艇</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> x2 <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> <a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Watering_Can">喷壶</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> x2 <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 35</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Shredder_Chaingun_Ammunition_Box">撕裂连射炮弹药箱</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> / <a href="https://barotraumagame.com/wiki/Titanium">钛</a>） + （<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x3) / <a href="https://barotraumagame.com/wiki/Uranium">铀</a> (x3) / <a href="https://barotraumagame.com/wiki/Titanium">钛</a> (x3)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 60 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Piercing_Coilgun_Ammunition_Box">穿甲电磁枪弹药箱</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> / <a href="https://barotraumagame.com/wiki/Titanium">钛</a>） + （<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) / <a href="https://barotraumagame.com/wiki/Uranium">铀</a> (x2) / <a href="https://barotraumagame.com/wiki/Titanium">钛</a> (x2)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Makeshift_Shelves">简易货架</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x4) <a href="https://barotraumagame.com/wiki/Iron">铁</a> (x6)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20，<a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 20 天赋：<a href="https://barotraumagame.com/wiki/Logistics_System">物流系统</a> 20</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x3) <a href="https://barotraumagame.com/wiki/Iron">铁</a> (x4)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="单兵武器与爆炸物">单兵武器与爆炸物 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Rifle">步枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 55 天赋：<a href="https://barotraumagame.com/wiki/Rifleman">步枪手</a> 60</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Riot_Shotgun">防暴霰弹枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 55 天赋：<a href="https://barotraumagame.com/wiki/Weaponsmith">武器匠</a> 60</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Flamer">喷火器</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30，<a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 20 天赋：<a href="https://barotraumagame.com/wiki/Pyromaniac">火焰狂人</a> 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Riot_Shield">防爆盾牌</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x3)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Pacification_Kit">安抚套装</a> 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Harpoon_Gun">鱼叉枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2) <a href="https://barotraumagame.com/wiki/Tin">锡</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Machine_Pistol">机关手枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 35 45</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Stun_Gun">电击枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Stun_Baton">电击甩棍</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Plasma_Cutter">等离子切割器</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Welding_Tool">焊接工具</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Small_Planter_Box">小号种植箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 45</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (&gt;=50%*) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (100%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Revolver">左轮手枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 35 天赋：<a href="https://barotraumagame.com/wiki/Gunsmith">玩枪妙手</a> 35</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Storage_Container">储物容器</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Handcuffs">手铐</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 20 10</td>
+<td>5</td>
+<td>无</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Harpoon">鱼叉</a></td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a>（产出 6 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 20 10</td>
+<td>5</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/UEX">UEX</a></td>
+<td><a href="https://barotraumagame.com/wiki/Sodium">钠</a> <a href="https://barotraumagame.com/wiki/Phosphorus">磷</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 50 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Hardened_Screwdriver">硬化螺丝刀</a></td>
+<td><a href="https://barotraumagame.com/wiki/Screwdriver">螺丝刀</a> <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 天赋：<a href="https://barotraumagame.com/wiki/Heavy_Hitter">重拳出击</a> 10</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Deepdiver_Duck">潜水鸭</a></td>
+<td><a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Helm">驾驶水平</a> 10 10</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Safety_Harness">安全背带</a></td>
+<td><a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> x2 <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a> x2（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 25 天赋：<a href="https://barotraumagame.com/wiki/Safety_First">安全第一</a> 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> <a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/SMG">冲锋枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 55 天赋：<a href="https://barotraumagame.com/wiki/Weaponsmith">武器匠</a> 35</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Diving_Mask">潜水面罩</a></td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> x2（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Explosive_Slug">爆炸独头弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Incendium_Crystal">燃素水晶</a>（产出 6 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Don%27t_Push_It">见好就收</a> 10</td>
+<td>5</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Gene_Splicer">基因拼接器</a></td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> x2 <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> x2 <a href="https://barotraumagame.com/wiki/Silicon">硅</a> x2</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 50 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> x2 <a href="https://barotraumagame.com/wiki/Copper">铜</a> x2 <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> <a href="https://barotraumagame.com/wiki/Silicon">硅</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Auto-Injector_Headset">自注射耳机</a></td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Medical_Companion">医疗伙伴</a> 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2) <a href="https://barotraumagame.com/wiki/Copper">铜</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2) <a href="https://barotraumagame.com/wiki/Tin">锡</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 15 5</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a></td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium">钛</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 40 5</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Titanium">钛</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Circuit_Box">配电箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2) <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x4) <a href="https://barotraumagame.com/wiki/Tin">锡</a> (x4)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 35 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Cigar">雪茄</a></td>
+<td><a href="https://barotraumagame.com/wiki/Pipe_Tobacco">烟丝</a></td>
+<td>天赋：<a href="https://barotraumagame.com/wiki/Sailor_with_No_Name">无名水手</a> 5</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Chaingun_Ammunition_Box">刚素连射炮弹药箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> + （<a href="https://barotraumagame.com/wiki/Titanium">钛</a> (x3) / <a href="https://barotraumagame.com/wiki/Uranium">铀</a> (x3) / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x3)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 55 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> (≥95%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Railgun_Shell">轨道炮刚素弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> <a href="https://barotraumagame.com/wiki/Titanium">钛</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Flak_Shells_Box">刚素破片弹药箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> + （<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> / <a href="https://barotraumagame.com/wiki/Uranium">铀</a> / <a href="https://barotraumagame.com/wiki/Titanium">钛</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x2) / <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2)） + （<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> (≥95%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Coilgun_Ammunition_Box">刚素电磁枪弹药箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> + （<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2) / <a href="https://barotraumagame.com/wiki/Uranium">铀</a> (x2) / <a href="https://barotraumagame.com/wiki/Titanium">钛</a> (x2)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> (≥95%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Assault_Rifle">突击步枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x3) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 65 天赋：<a href="https://barotraumagame.com/wiki/Rifleman">步枪手</a> 75</td>
+<td>35</td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/HMG">重机枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x3) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 65 天赋：<a href="https://barotraumagame.com/wiki/Warlord">暴力军阀</a> 75</td>
+<td>35</td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Harpoon">刚素鱼叉</a></td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a>（产出 6 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 10</td>
+<td>5</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Handcannon_Round">手炮子弹</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + （<a href="https://barotraumagame.com/wiki/Titanium">钛</a> / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a>） + （<a href="https://barotraumagame.com/wiki/Titanium">钛</a> / <a href="https://barotraumagame.com/wiki/Uranium">铀</a> / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a>）（产出 6 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 45 天赋：<a href="https://barotraumagame.com/wiki/Big_Guns">重炮手</a> 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Focused_Flak_Shells_Box">集束破片弹药箱</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + （<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> / <a href="https://barotraumagame.com/wiki/Titanium">钛</a>） + （<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> / <a href="https://barotraumagame.com/wiki/Uranium">铀</a> / <a href="https://barotraumagame.com/wiki/Titanium">钛</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x2) / <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Shotgun_Rubber_Shell">霰弹枪橡胶弹</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> (x2)（产出 12 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Rifle_Round">步枪子弹</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + （<a href="https://barotraumagame.com/wiki/Lead">铅</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Iron">铁</a>） + （<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> / <a href="https://barotraumagame.com/wiki/Titanium">钛</a>）（产出 6 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Rifleman">步枪手</a> 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/SMG_Magazine">冲锋枪弹匣</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + （<a href="https://barotraumagame.com/wiki/Lead">铅</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Iron">铁</a>） + <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Munitions_Expertise">弹药专家</a> 25</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Shotgun_Shell">霰弹枪弹药</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + （<a href="https://barotraumagame.com/wiki/Lead">铅</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Iron">铁</a>） + <a href="https://barotraumagame.com/wiki/Plastic">塑料</a>（产出 6 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Munitions_Expertise">弹药专家</a> 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Defense_Bot_Ammunition_Rounds">防御机器人弹药</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + （<a href="https://barotraumagame.com/wiki/Lead">铅</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Iron">铁</a>） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a>（产出 1 件）</td>
+<td>天赋：<a href="https://barotraumagame.com/wiki/Robotics">机器人技术</a> 25</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Spreader_Flak_Shells_Box">霰弹破片弹药箱</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + （<a href="https://barotraumagame.com/wiki/Lead">铅</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x2) / <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Depleted_Fuel_SMG_Magazine">贫化燃料冲锋枪弹夹</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a> + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Iron">铁</a>） + <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40，<a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Arms_Race">军备竞赛</a> 30</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a> (95%*) <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Depleted_Fuel_Revolver_Round">贫化燃料左轮手枪子弹</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> / <a href="https://barotraumagame.com/wiki/Magnesium">镁</a>） + <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a> + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Iron">铁</a>）（产出 12 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30，<a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Arms_Race">军备竞赛</a> 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Light_Component">光学组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> (x2) <a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 20 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> <a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Makeshift_Armor">临时盔甲</a></td>
+<td><a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a> x2 <a href="https://barotraumagame.com/wiki/Iron">铁</a> x6（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 20，<a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 天赋：<a href="https://barotraumagame.com/wiki/Ironman">铁人</a> 30</td>
+<td>40</td>
+<td><a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a> <a href="https://barotraumagame.com/wiki/Iron">铁</a> x4（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Seed_Bag">种子收纳包</a></td>
+<td><a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a> x2</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 15 25</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Backpack">背包</a></td>
+<td><a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a> (x5)</td>
+<td>天赋：<a href="https://barotraumagame.com/wiki/Bag_It_Up">打包</a> 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a> (x3)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Nuclear_Depth_Decoy">核能深潜诱饵</a></td>
+<td><a href="https://barotraumagame.com/wiki/Nuclear_Depth_Charge">核能深水炸弹</a> <a href="https://barotraumagame.com/wiki/Sonar_Beacon">声纳信标</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a> <a href="https://barotraumagame.com/wiki/Incendium_Crystal">燃素水晶</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Nuclear_Depth_Decoy">核能深潜诱饵（廉价）</a></td>
+<td><a href="https://barotraumagame.com/wiki/Nuclear_Depth_Charge">核能深水炸弹（廉价）</a> <a href="https://barotraumagame.com/wiki/Sonar_Beacon">声纳信标</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Nuclear_Option">世界核平</a> 30</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Funbringer_3000">欢乐使者3000</a></td>
+<td><a href="https://barotraumagame.com/wiki/Mother%27s_Providence">母亲的庇佑</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x10) <a href="https://barotraumagame.com/wiki/Banana">香蕉</a> (x16)（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 60 天赋：<a href="https://barotraumagame.com/wiki/True_Potential">潜力无穷</a> 45</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x3) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> (x2)（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Clown_Crate">小丑箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Metal_Crate">金属箱</a> <a href="https://barotraumagame.com/wiki/Red_Paint">红色涂料</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a></td>
+<td>天赋：<a href="https://barotraumagame.com/wiki/Enroll_into_Clown_College">小丑修行</a> 20</td>
+<td>5</td>
+<td>无</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/HMG_Magazine">重机枪弹夹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Magnesium">镁</a> + <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> + （<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> / <a href="https://barotraumagame.com/wiki/Uranium">铀</a> / <a href="https://barotraumagame.com/wiki/Titanium">钛</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a>） + <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Warlord">暴力军阀</a> 35</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Assault_Rifle_Magazine">突击步枪弹夹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Magnesium">镁</a> + （<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> / <a href="https://barotraumagame.com/wiki/Titanium">钛</a>） + （<a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> / <a href="https://barotraumagame.com/wiki/Uranium">铀</a> / <a href="https://barotraumagame.com/wiki/Titanium">钛</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a>） + <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Rifleman">步枪手</a> 35</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Flash_Powder">闪光粉</a></td>
+<td><a href="https://barotraumagame.com/wiki/Magnesium">镁</a> <a href="https://barotraumagame.com/wiki/Potassium">钾</a> (x2)</td>
+<td>5</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Magnesium">镁</a> (%) <a href="https://barotraumagame.com/wiki/Potassium">钾</a> (%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Revolver_Round">左轮子弹</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Magnesium">镁</a> / <a href="https://barotraumagame.com/wiki/Phosphorus">磷</a>） + （<a href="https://barotraumagame.com/wiki/Lead">铅</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a>） + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Iron">铁</a>）（产出 12 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Gunsmith">玩枪妙手</a> 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Pulse_Laser_Fuel_Box">脉冲激光物资箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Lithium">锂</a> <a href="https://barotraumagame.com/wiki/Alien_Blood">异星血浆</a> <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 50 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Lithium">锂</a> (≥95%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Canister_Railgun_Shell">轨道炮罐装弹</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Lead">铅</a> / <a href="https://barotraumagame.com/wiki/Copper">铜</a> / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a>） + <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Artifact_Transport_Case">造物运输箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Lead">铅</a> (x3) <a href="https://barotraumagame.com/wiki/Titanium">钛</a> (x2)</td>
+<td>30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Lead">铅</a> <a href="https://barotraumagame.com/wiki/Titanium">钛</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Chaingun_Ammunition_Box">连射炮弹药箱</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Lead">铅</a> (x3) / <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x3) / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x3)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Coilgun_Ammunition_Box">电磁枪弹药箱</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Lead">铅</a> (x2) / <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2) / <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (x2)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Frag_Grenade">破片手榴弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/UEX">UEX</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 60 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Sodium">钠</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/40mm_Grenade">40mm榴弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/UEX">UEX</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 10</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Sodium">钠</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/40mm_Acid_Grenade">40mm酸液榴弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a> <a href="https://barotraumagame.com/wiki/Phosphorus">磷</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 天赋：<a href="https://barotraumagame.com/wiki/What_a_Stench!">恶臭</a> 10</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/40mm_Stun_Grenade">40mm震撼榴弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> <a href="https://barotraumagame.com/wiki/Flash_Powder">闪光粉</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 10</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Phosphorus">磷</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Stun_Grenade">震撼手榴弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> <a href="https://barotraumagame.com/wiki/Flash_Powder">闪光粉</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Phosphorus">磷</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/EMP_Grenade">EMP手榴弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Flash_Powder">闪光粉</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30，<a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 20 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Copper">铜</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Railgun_Harpoon">轨道炮鱼叉</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Iron_Helmet">铁头盔</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> x4</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 20，<a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 天赋：<a href="https://barotraumagame.com/wiki/Ironman">铁人</a> 40</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> x2</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Depth_Charge_Shell">深水炸弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> x2 <a href="https://barotraumagame.com/wiki/UEX">UEX</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/UEX">UEX</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Nuclear_Depth_Charge">核能深水炸弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2) <a href="https://barotraumagame.com/wiki/Uranium">铀</a> <a href="https://barotraumagame.com/wiki/IC-4_Block">IC-4炸药</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a> <a href="https://barotraumagame.com/wiki/Incendium_Crystal">燃素水晶</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Acid_Grenade">酸液手榴弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2) <a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a>（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 天赋：<a href="https://barotraumagame.com/wiki/What_a_Stench!">恶臭</a> 10</td>
+<td>5</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Depth_Decoy_Shell">深潜诱饵</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2) <a href="https://barotraumagame.com/wiki/Sonar_Beacon">声纳信标</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 25 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Incendium_Grenade">燃素手榴弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2) <a href="https://barotraumagame.com/wiki/Incendium_Crystal">燃素水晶</a>（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Nuclear_Depth_Charge">核能深水炸弹（廉价）</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2) <a href="https://barotraumagame.com/wiki/Fuel_Rod">铀燃料棒</a> (&gt;80%) <a href="https://barotraumagame.com/wiki/UEX">UEX</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Nuclear_Option">世界核平</a> 30</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="工具-电子器材与战术设备">工具、电子器材与战术设备 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Wrench">扳手</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Screwdriver">螺丝刀</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 10</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Diving_Knife">潜水刀</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Crowbar">撬棍</a></td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Explosive_Harpoon">爆炸鱼叉</a></td>
+<td><a href="https://barotraumagame.com/wiki/Harpoon">鱼叉</a> (x2) <a href="https://barotraumagame.com/wiki/UEX">UEX</a>（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 10</td>
+<td>5</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Fulgurium_Stun_Gun_Dart">雷素电击枪飞镖</a></td>
+<td><a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> <a href="https://barotraumagame.com/wiki/Wire">导线（任意）</a>（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Pacification_Kit">安抚套装</a> 25</td>
+<td>5</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Advanced_Gene_Splicer">高阶基因拼接器</a></td>
+<td><a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> <a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> (x2) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> (x2) <a href="https://barotraumagame.com/wiki/Silicon">硅</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 60 天赋：<a href="https://barotraumagame.com/wiki/Genetic_Genius">基因天才</a> 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> <a href="https://barotraumagame.com/wiki/Silicon">硅</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Pulse_Tri-Laser_Fuel_Box">三联脉冲激光物资箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> <a href="https://barotraumagame.com/wiki/Alien_Blood">异星血浆</a> <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 65 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> (≥95%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Arc_Emitter">电弧枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x3) <a href="https://barotraumagame.com/wiki/Copper">铜</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 65 天赋：<a href="https://barotraumagame.com/wiki/Lightning_Wizard">闪电巫师</a> 75</td>
+<td>35</td>
+<td><a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2) <a href="https://barotraumagame.com/wiki/Copper">铜</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a></td>
+<td>（<a href="https://barotraumagame.com/wiki/Fuel_Rod">铀燃料棒</a> / <a href="https://barotraumagame.com/wiki/Thorium_Fuel_Rod">钍燃料棒</a> (≤10%)） + <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 35 天赋：<a href="https://barotraumagame.com/wiki/Military_Applications">军事应用</a> 15</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Text_Display">文字显示器</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a> <a href="https://barotraumagame.com/wiki/Silicon">硅</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 50 30</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a> <a href="https://barotraumagame.com/wiki/Silicon">硅</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Terminal">终端</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a> <a href="https://barotraumagame.com/wiki/Silicon">硅</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 50 30</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a> <a href="https://barotraumagame.com/wiki/Silicon">硅</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Thermal_Goggles">热成像护目镜</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a>（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 50 天赋：<a href="https://barotraumagame.com/wiki/Spec_Ops">特种部队</a> 40</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2) <a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Handheld_Itemfinder">手持式物品搜寻器</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20，<a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 20 天赋：<a href="https://barotraumagame.com/wiki/Logistics_System">物流系统</a> 20</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Electrician%27s_Goggles">电工护目镜</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a>（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 50 40</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Sonar_Beacon">声纳信标</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 15</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Handheld_Electrical_Monitor">手持式电气监测器</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 25 天赋：<a href="https://barotraumagame.com/wiki/Grid_Maintainer">电网维护者</a> 15</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> x2</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Health_Scanner_HUD">健康扫描界面</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30，<a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 50 10</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> x2</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Handheld_Status_Monitor">手持式状态监测器</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Hull_Fixer">船体修理</a> 20</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> x2</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Reactor_PDA">反应堆检测平板</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Remote_Monitor">远程监控</a> 15</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> x2</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Handheld_Sonar">手持声纳</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 20</td>
+<td>15</td>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2) <a href="https://barotraumagame.com/wiki/Copper">铜</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Scrap_Cannon">废铁炮</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x3)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 65 天赋：<a href="https://barotraumagame.com/wiki/Iron_Storm">钢铁风暴</a> 70</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Rapid_Fissile_Accelerator">快速裂变加速器</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2) <a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 65 天赋：<a href="https://barotraumagame.com/wiki/Nuclear_Option">世界核平</a> 70</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> <a href="https://barotraumagame.com/wiki/Fulgurium_Chunk">雷素块</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Color_Component">颜色组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Signal_Check_Component">信号检查组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Greater_Component">大于组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Abs_Component">绝对值组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Relay_Component">继电组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Exponentiation_Component">幂组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Round_Component">整组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Adder_Component">加法组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Factorial_Component">阶乘组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Floor_Component">下整组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Subtract_Component">减法组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Ceil_Component">上整组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Modulo_Component">模组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Multiply_Component">乘法组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Input_Selector_Component">输入选择器元件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Divide_Component">除法组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Sin_Component">正弦组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Output_Selector_Component">输出选择器元件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Delay_Component">延迟组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Concatenation_Component">连接组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Atan_Component">角A正切组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Wifi_Component">Wifi组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Memory_Component">内存组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Square_Root_Component">平方根组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Equals_Component">等于组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Not_Component">否组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Xor_Component">异或组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Or_Component">或组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Asin_Component">角A正弦组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Oscillator_Component">振荡组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Acos_Component">角A余弦组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Cos_Component">余弦组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/RegEx_Find_Component">正则表达式查找组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/And_Component">与组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Tan_Component">正切组件</a></td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td>10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Flare">照明弹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Flash_Powder">闪光粉</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a>（产出 12 件）</td>
+<td>10</td>
+<td>5</td>
+<td>不适用（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Rum">朗姆酒</a></td>
+<td><a href="https://barotraumagame.com/wiki/Ethanol">医用酒精</a> + （<a href="https://barotraumagame.com/wiki/Raptor_Bane">迅猛龙杀手</a> / <a href="https://barotraumagame.com/wiki/Pomegrenade">爆弹石榴</a>）（产出 1 件）</td>
+<td>天赋：<a href="https://barotraumagame.com/wiki/Drunken_Sailor">醉汉水手</a> 25</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Molotov_Cocktail">燃烧瓶</a></td>
+<td><a href="https://barotraumagame.com/wiki/Ethanol">医用酒精</a> <a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a>（产出 2 件）</td>
+<td>10</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="高阶防护与终盘制造">高阶防护与终盘制造 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Abyss_Diving_Suit">深渊潜水服</a></td>
+<td><a href="https://barotraumagame.com/wiki/Diving_Suit">潜水服</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 60 45</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x3) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Combat_Diving_Suit">战斗潜水服</a></td>
+<td><a href="https://barotraumagame.com/wiki/Diving_Suit">潜水服</a> <a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a>（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 60 45</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> x2 <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> x2（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Hardened_Diving_Knife">硬化潜水刀</a></td>
+<td><a href="https://barotraumagame.com/wiki/Diving_Knife">潜水刀</a> <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a> x2</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Heavy_Hitter">重拳出击</a> 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Depleted_Fuel_Coilgun_Ammunition_Box">贫化燃料电磁枪弹药箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a> (x2) + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x2) / <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2) / <a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Military_Applications">军事应用</a> 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a> (≥95%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Gravity_Flak_Shells_Box">破片加农炮重力弹药箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x2) / <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> (≥95%) <a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> (≥50%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Gravity_Railgun_Shell">轨道炮重力弹药</a></td>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> <a href="https://barotraumagame.com/wiki/Titanium">钛</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Portable_Pump">便携式水泵</a></td>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> x2 <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> x2 <a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 50 天赋：<a href="https://barotraumagame.com/wiki/Let_it_Drain">放任自流</a> 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Hardened_Crowbar">硬化撬棍</a></td>
+<td><a href="https://barotraumagame.com/wiki/Crowbar">撬棍</a> <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a> x2</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Heavy_Hitter">重拳出击</a> 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Depleted_Fuel">贫化燃料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Multi-tool">多功能工具</a></td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Silicon">硅</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a>（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 40 天赋：<a href="https://barotraumagame.com/wiki/Modular_Repairs">模块化维修</a> 10</td>
+<td>5</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Wires">红色导线</a></td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a>（产出 5 件）</td>
+<td>5</td>
+<td>1</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Wires">蓝色导线</a></td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a>（产出 5 件）</td>
+<td>5</td>
+<td>1</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Wires">橙色导线</a></td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a>（产出 5 件）</td>
+<td>5</td>
+<td>1</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Wires">绿色导线</a></td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a>（产出 5 件）</td>
+<td>5</td>
+<td>1</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Wires">黑色导线</a></td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a>（产出 5 件）</td>
+<td>5</td>
+<td>1</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Wires">棕色导线</a></td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a>（产出 5 件）</td>
+<td>5</td>
+<td>1</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cymbals">摄魂钹</a></td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> (x4)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 50 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Slipsuit">带鳍潜水服</a></td>
+<td><a href="https://barotraumagame.com/wiki/Combat_Diving_Suit">战斗潜水服</a> <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a>（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 天赋：<a href="https://barotraumagame.com/wiki/Boarding_Party">登船小队</a> 45</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> (x2)（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/PUCS">PUCS防护服</a></td>
+<td><a href="https://barotraumagame.com/wiki/Combat_Diving_Suit">战斗潜水服</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> <a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a>（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Electrical">电气工程</a> 60 天赋：<a href="https://barotraumagame.com/wiki/Ph.D_in_Nuclear_Physics">核物理博士</a> 80</td>
+<td>45</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2) <a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> <a href="https://barotraumagame.com/wiki/Lead">铅</a> <a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Clown_Diving_Mask">小丑潜水面罩</a></td>
+<td><a href="https://barotraumagame.com/wiki/Clown_Mask">小丑面具</a> <a href="https://barotraumagame.com/wiki/Diving_Mask">潜水面罩</a></td>
+<td>天赋：<a href="https://barotraumagame.com/wiki/Water_Prankster">浪里白条</a> 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Diving_Mask">潜水面罩</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Chitin_Helmet">几丁质头盔</a></td>
+<td><a href="https://barotraumagame.com/wiki/Chitin_Chunk">几丁质块</a> x3</td>
+<td>20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Chitin_Chunk">几丁质块</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td><a href="https://barotraumagame.com/wiki/Carbon">碳</a> <a href="https://barotraumagame.com/wiki/Silicon">硅</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 5</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Carbon">碳</a> (%) <a href="https://barotraumagame.com/wiki/Silicon">硅</a> (%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a></td>
+<td><a href="https://barotraumagame.com/wiki/Carbon">碳</a> <a href="https://barotraumagame.com/wiki/Iron">铁</a> x2</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 5</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Carbon">碳</a> (%) <a href="https://barotraumagame.com/wiki/Iron">铁</a> (%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Explosive_Coilgun_Ammunition_Box">爆炸电磁枪弹药箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/C-4_Block">C-4炸药</a> + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x2) / <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 50 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Sodium">钠</a> (≥95%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/IC-4_Block">IC-4炸药</a></td>
+<td><a href="https://barotraumagame.com/wiki/C-4_Block">C-4炸药</a> <a href="https://barotraumagame.com/wiki/Incendium_Crystal">燃素水晶</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 50 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Explosive_Flak_Shells_Box">高爆破片弹药箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/C-4_Block">C-4炸药</a> (x2) + （<a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x2) / <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2)） + <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 50 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/C-4_Block">C-4炸药</a> (≥95%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Toy_Hammer">玩具锤子</a></td>
+<td><a href="https://barotraumagame.com/wiki/Bike_Horn">小丑喇叭</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+<td>20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Bike_Horn">小丑喇叭</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Autoshotgun">自动霰弹枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> <a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 55 天赋：<a href="https://barotraumagame.com/wiki/Pacification_Kit">安抚套装</a> 65</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> <a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> (x2) <a href="https://barotraumagame.com/wiki/Titanium-Aluminum_Alloy">钛铝合金</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Body_Armor">防弹衣</a></td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> x3（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 40 30</td>
+<td>40</td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> x2（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Helmet">防弹头盔</a></td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> x2</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Gunner%27s_Helmet">炮手头盔</a></td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> x2</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Riot_Helmet">防暴头盔</a></td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> x2</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Bandolier">战术腰带</a></td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a>（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 35 天赋：<a href="https://barotraumagame.com/wiki/Don%27t_Push_It">见好就收</a> 25</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Ballistic_Fiber">防弹纤维</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Fire_Extinguisher">灭火器</a></td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> <a href="https://barotraumagame.com/wiki/Sodium">钠</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> <a href="https://barotraumagame.com/wiki/Sodium">钠</a> (50%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Syringe_Gun">注射器枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 50 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Oxygenite_Tank">液氧罐</a></td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (x2) <a href="https://barotraumagame.com/wiki/Liquid_Oxygenite">液态氧矿</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 40 5</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> <a href="https://barotraumagame.com/wiki/Liquid_Oxygenite">液态氧矿</a> (≥10%) <a href="https://barotraumagame.com/wiki/Liquid_Oxygenite">液态氧矿</a> (≥90%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Incendium_Fuel_Tank">燃素燃料罐</a></td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (x2) <a href="https://barotraumagame.com/wiki/Incendium_Crystal">燃素水晶</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 40 15</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Underwater_Scooter">水下助推器</a></td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (x2) <a href="https://barotraumagame.com/wiki/FPGA_Circuit">FPGA电路</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 30 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> <a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Welding_Fuel_Tank">焊接油箱</a></td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (x2) <a href="https://barotraumagame.com/wiki/Ethanol">医用酒精</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Husk_Figurine">画皮雕像</a></td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (x2)</td>
+<td></td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Oxygen_Tank">氧气罐</a></td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Mechanical">机械工程</a> 20 4</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Harpoon_Coil-Rifle">电磁鱼叉枪</a></td>
+<td><a href="https://barotraumagame.com/wiki/Aluminium">铝</a> (x2) <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> (x2) <a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Weapons">武器操作</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Boarding_Party">登船小队</a> 20</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Aluminium">铝</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a> <a href="https://barotraumagame.com/wiki/Copper">铜</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="医疗加工台物品">医疗加工台物品 </h2>
+<p>来源：<a href="https://barotraumagame.com/wiki/Fabricator_%26_Deconstructor#Medical_Fabricator_Items">医疗加工台物品</a></p>
+<h3 id="强化剂与危险制剂">强化剂与危险制剂 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Anabolic_Steroids">合成代谢类固醇</a></td>
+<td><a href="https://barotraumagame.com/wiki/Tonic_Liquid">内用辅液</a> <a href="https://barotraumagame.com/wiki/Adrenaline">肾上腺素</a> (x3)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 30 45</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Tonic_Liquid">内用辅液</a> <a href="https://barotraumagame.com/wiki/Adrenaline">肾上腺素</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Radiotoxin">辐射毒剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Thorium">钍</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 56 60</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Thorium">钍</a> <a href="https://barotraumagame.com/wiki/Uranium">铀</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Endocrine_Booster">内分泌促进剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Sulphurite_Shard">硫酸矿碎片</a> x2 <a href="https://barotraumagame.com/wiki/Paralyxis">麻痹源</a> x2 <a href="https://barotraumagame.com/wiki/Deusizine">神效剂</a>（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 90 天赋：<a href="https://barotraumagame.com/wiki/Macrodosing">大力出奇迹</a> 50</td>
+<td>25</td>
+<td><a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a> x2 <a href="https://barotraumagame.com/wiki/Paralyxis">麻痹源</a> <a href="https://barotraumagame.com/wiki/Deusizine">神效剂</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Sufforin">升天毒剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a> <a href="https://barotraumagame.com/wiki/Potassium">钾</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 60 60</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Crimson_Acid">赤酸</a></td>
+<td><a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a> (x2) <a href="https://barotraumagame.com/wiki/Alien_Blood">异星血浆</a> <a href="https://barotraumagame.com/wiki/Plastic">塑料</a>（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Plague_Doctor">瘟疫医生</a> 5</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a>（按 1 件解构物计算）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="基础医疗与常规药品">基础医疗与常规药品 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Sufforin_Antidote">升天解药</a></td>
+<td><a href="https://barotraumagame.com/wiki/Sufforin">升天毒剂</a> <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 24 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Antibiotic_Glue">抗生素凝胶</a></td>
+<td><a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a> <a href="https://barotraumagame.com/wiki/Broad-spectrum_Antibiotics">广谱抗生素</a> (x2) <a href="https://barotraumagame.com/wiki/Elastin">弹性蛋白</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 48 45</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Broad-spectrum_Antibiotics">广谱抗生素</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Saline">生理盐水</a></td>
+<td><a href="https://barotraumagame.com/wiki/Sodium">钠</a> <a href="https://barotraumagame.com/wiki/Chlorine">氯</a> (x2)（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 5 15</td>
+<td>1</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Blood_Pack">血袋</a></td>
+<td><a href="https://barotraumagame.com/wiki/Saline">生理盐水</a> (x2) <a href="https://barotraumagame.com/wiki/Alien_Blood">异星血浆</a> (x2) <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a>（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 31 25</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Sodium">钠</a> <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Raptor_Bane_Extract">迅猛龙杀手精华</a></td>
+<td><a href="https://barotraumagame.com/wiki/Raptor_Bane">迅猛龙杀手</a> (x4)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 20 40</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Carbon">碳</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Antirad">消辐灵</a></td>
+<td><a href="https://barotraumagame.com/wiki/Radiotoxin">辐射毒剂</a> <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 35 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Pomegrenade_Extract">爆弹石榴精华</a></td>
+<td><a href="https://barotraumagame.com/wiki/Pomegrenade">爆弹石榴</a> x3</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 20 15</td>
+<td>30</td>
+<td><a href="https://barotraumagame.com/wiki/Pomegrenade">爆弹石榴</a> x2</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Methamphetamine">兴奋粉剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> <a href="https://barotraumagame.com/wiki/Chlorine">氯</a> (x2) <a href="https://barotraumagame.com/wiki/Carbon">碳</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 30 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> <a href="https://barotraumagame.com/wiki/Chlorine">氯</a> <a href="https://barotraumagame.com/wiki/Carbon">碳</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Anaparalyzant">麻痹治愈剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Paralyzant">麻痹剂</a> <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 24 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Bandage">绷带</a></td>
+<td><a href="https://barotraumagame.com/wiki/Organic_Fiber">活性纤维</a>（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 5 15</td>
+<td>1</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Naloxone">纳洛酮</a></td>
+<td><a href="https://barotraumagame.com/wiki/Opium">药用鸦片</a> <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 23 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Fentanyl">芬太尼</a></td>
+<td><a href="https://barotraumagame.com/wiki/Opium">药用鸦片</a> <a href="https://barotraumagame.com/wiki/Adrenaline">肾上腺素</a> <a href="https://barotraumagame.com/wiki/Ethanol">医用酒精</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 50 45</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Opium">药用鸦片</a> <a href="https://barotraumagame.com/wiki/Adrenaline">肾上腺素</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Morphine">吗啡</a></td>
+<td><a href="https://barotraumagame.com/wiki/Opium">药用鸦片</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 18 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Opium">药用鸦片</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="特殊提取物与神经药剂">特殊提取物与神经药剂 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Petraptor_Egg">宝石迅猛龙蛋</a></td>
+<td><a href="https://barotraumagame.com/wiki/Mudraptor_Egg">泥偶迅猛龙蛋</a> <a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a></td>
+<td>天赋：<a href="https://barotraumagame.com/wiki/The_Friends_We_Made">交个朋友</a> 10</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Alien_Blood">异星血浆</a> <a href="https://barotraumagame.com/wiki/Adrenaline_Gland">肾上腺素腺体</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Morbusine_Antidote">窒死毒剂解毒剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Morbusine">窒死毒剂</a> <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 20 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Hyperzine">加速粉剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Methamphetamine">兴奋粉剂</a> <a href="https://barotraumagame.com/wiki/Anabolic_Steroids">合成代谢类固醇</a></td>
+<td>60</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Anabolic_Steroids">合成代谢类固醇</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Flash_Powder">闪光粉</a></td>
+<td><a href="https://barotraumagame.com/wiki/Magnesium">镁</a> <a href="https://barotraumagame.com/wiki/Potassium">钾</a> (x2)</td>
+<td>5</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Magnesium">镁</a> (%) <a href="https://barotraumagame.com/wiki/Potassium">钾</a> (%)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Haloperidol">氟哌啶醇</a></td>
+<td><a href="https://barotraumagame.com/wiki/Lithium">锂</a> <a href="https://barotraumagame.com/wiki/Carbon">碳</a> (x2) <a href="https://barotraumagame.com/wiki/Chlorine">氯</a> (x2)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 21 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Lithium">锂</a> <a href="https://barotraumagame.com/wiki/Carbon">碳</a> <a href="https://barotraumagame.com/wiki/Chlorine">氯</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Pressure_Stabilizer">压力稳定剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Liquid_Oxygenite">液态氧矿</a> (x2) <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+<td>天赋：<a href="https://barotraumagame.com/wiki/No_Pressure">放轻松</a> 20</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Liquid_Oxygenite">液态氧矿</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Mindsense">神识</a></td>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> <a href="https://barotraumagame.com/wiki/Methamphetamine">兴奋粉剂</a>（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 40 60</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Methamphetamine">兴奋粉剂</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Deliriumine">谵妄毒剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> <a href="https://barotraumagame.com/wiki/Ethanol">医用酒精</a>（产出 2 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 50 60</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Mind_Wipe">洗灵</a></td>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> (x4) <a href="https://barotraumagame.com/wiki/Haloperidol">氟哌啶醇</a> (x4)（产出 1 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 50 60</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> (x2) <a href="https://barotraumagame.com/wiki/Haloperidol">氟哌啶醇</a> (x2)（按 1 件解构物计算）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="解毒剂与高阶化学品">解毒剂与高阶化学品 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Deliriumine_Antidote">谵妄解药</a></td>
+<td><a href="https://barotraumagame.com/wiki/Deliriumine">谵妄毒剂</a> <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 25 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Cyanide_Antidote">氰化物解药</a></td>
+<td><a href="https://barotraumagame.com/wiki/Cyanide">氰化物毒剂</a> <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 26 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Volatile_Compound_N">挥发性叠氮化合物</a></td>
+<td><a href="https://barotraumagame.com/wiki/Compound_N">叠氮化合物</a> <a href="https://barotraumagame.com/wiki/Flash_Powder">闪光粉</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 40 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Chloral_Hydrate">水合氯醛</a></td>
+<td><a href="https://barotraumagame.com/wiki/Chlorine">氯</a> (x2) <a href="https://barotraumagame.com/wiki/Ethanol">医用酒精</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 50 60</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Chlorine">氯</a> <a href="https://barotraumagame.com/wiki/Ethanol">医用酒精</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Morbusine">窒死毒剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Chlorine">氯</a> (x2) <a href="https://barotraumagame.com/wiki/Calcium">钙</a> (x2) <a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 58 60</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Chlorine">氯</a> <a href="https://barotraumagame.com/wiki/Calcium">钙</a> <a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Cyanide">氰化物毒剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Chloral_Hydrate">水合氯醛</a> <a href="https://barotraumagame.com/wiki/Sodium">钠</a> (x3)</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 54 60</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Chloral_Hydrate">水合氯醛</a> <a href="https://barotraumagame.com/wiki/Sodium">钠</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Paralyzant">麻痹剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Chloral_Hydrate">水合氯醛</a> <a href="https://barotraumagame.com/wiki/Paralyxis">麻痹源</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 40 60</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Chlorine">氯</a> <a href="https://barotraumagame.com/wiki/Paralyxis">麻痹源</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Calyxanide">皮虫净</a></td>
+<td><a href="https://barotraumagame.com/wiki/Calyx_Extract">画皮提取物</a> <a href="https://barotraumagame.com/wiki/Broad-spectrum_Antibiotics">广谱抗生素</a> <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 22 30</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Broad-spectrum_Antibiotics">广谱抗生素</a> <a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Tonic_Liquid">内用辅液</a></td>
+<td><a href="https://barotraumagame.com/wiki/Calcium">钙</a> (x3) <a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x3) <a href="https://barotraumagame.com/wiki/Potassium">钾</a> (x3)（产出 2 件）</td>
+<td>20</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Calcium">钙</a> <a href="https://barotraumagame.com/wiki/Potassium">钾</a> <a href="https://barotraumagame.com/wiki/Zinc">锌</a>（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Plastiseal">可塑人造皮肤</a></td>
+<td><a href="https://barotraumagame.com/wiki/Bandage">绷带</a> (x3) <a href="https://barotraumagame.com/wiki/Elastin">弹性蛋白</a>（产出 3 件）</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 16 25</td>
+<td>1</td>
+<td>无（按 1 件解构物计算）</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Deusizine">神效剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Antibiotic_Glue">抗生素凝胶</a> <a href="https://barotraumagame.com/wiki/Fentanyl">芬太尼</a> <a href="https://barotraumagame.com/wiki/Liquid_Oxygenite">液态氧矿</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 70 60</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Antibiotic_Glue">抗生素凝胶</a> <a href="https://barotraumagame.com/wiki/Opium">药用鸦片</a> <a href="https://barotraumagame.com/wiki/Liquid_Oxygenite">液态氧矿</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Compound_N">叠氮化合物</a></td>
+<td><a href="https://barotraumagame.com/wiki/Aluminum">铝</a> <a href="https://barotraumagame.com/wiki/Potassium">钾</a> <a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a></td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 60 20</td>
+<td>无法解构</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Europabrew">欧罗巴精酿</a></td>
+<td><a href="https://barotraumagame.com/wiki/Alien_Blood">异星血浆</a> <a href="https://barotraumagame.com/wiki/Calcium">钙</a> x2</td>
+<td><a href="https://barotraumagame.com/wiki/Skills#Medical">医疗水平</a> 30 天赋：<a href="https://barotraumagame.com/wiki/Plague_Doctor">瘟疫医生</a> 10</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Alien_Blood">异星血浆</a> <a href="https://barotraumagame.com/wiki/Calcium">钙</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Combat_Stimulant">战斗兴奋剂</a></td>
+<td><a href="https://barotraumagame.com/wiki/Adrenaline">肾上腺素</a> (x2) <a href="https://barotraumagame.com/wiki/Morphine">吗啡</a></td>
+<td>天赋：<a href="https://barotraumagame.com/wiki/Super_Soldiers">超级士兵</a> 55</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Adrenaline">肾上腺素</a> <a href="https://barotraumagame.com/wiki/Opium">药用鸦片</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="不可制造物品分解台">不可制造物品（分解台） </h2>
+<p>来源：<a href="https://barotraumagame.com/wiki/Fabricator_%26_Deconstructor#Non-Craftable_Items">Non-Craftable Items</a></p>
+<p>说明：这一节以官方第三张不可制造物品表为基础，并补入官方 <a href="https://barotraumagame.com/wiki/Minerals">Minerals</a> 总页中明确给出分解产物的常规矿石。该总页不单列解构时间，而已核对的矿石独立页均为 5s，因此本节矿石项统一按 5s 记录；大量纯外观服饰与帽子条目仍不重复抄录。</p>
+<h3 id="生物提取材料">生物提取材料 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Adrenaline_Gland">肾上腺素腺体</a></td>
+<td>无</td>
+<td>无</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Adrenaline">肾上腺素</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Mudraptor_Egg">泥偶迅猛龙蛋</a></td>
+<td>无</td>
+<td>无</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Alien_Blood">异星血浆</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Mucus_Ball">粘液球</a></td>
+<td>无</td>
+<td>无</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Bandage">绷带</a> <a href="https://barotraumagame.com/wiki/Paralyxis">麻痹源</a> <a href="https://barotraumagame.com/wiki/Calcium">钙</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Moloch_Bone">摩螺克骨头</a></td>
+<td>无</td>
+<td>无</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Carbon">碳</a> (x2) <a href="https://barotraumagame.com/wiki/Calcium">钙</a> (x4)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Spineling%27s_Spike">脊刺的尖刺</a></td>
+<td>无</td>
+<td>无</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Carbon">碳</a> <a href="https://barotraumagame.com/wiki/Zinc">锌</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Alien_Circuitry">异星电路</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2) <a href="https://barotraumagame.com/wiki/Tin">锡</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Watcher_Shell_Fragment">观察者甲壳片</a></td>
+<td>无</td>
+<td>无</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Dementonite_Cluster">摄魂矿束</a> (x2) <a href="https://barotraumagame.com/wiki/Carbon">碳</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="矿物与自然资源">矿物与自然资源 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Amblygonite">磷铝石矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Lithium">锂</a> <a href="https://barotraumagame.com/wiki/Aluminum">铝</a> <a href="https://barotraumagame.com/wiki/Sodium">钠</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Aragonite">霰石矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Calcium">钙</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Bornite">斑铜矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Brockite">水磷钙钍石矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> <a href="https://barotraumagame.com/wiki/Thorium">钍</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Cassiterite">锡石矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Tin">锡</a> (x3)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Chalcopyrite">黄铜矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Chamosite">鲕绿泥石矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x2) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Chrysoprase">绿玉髓矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Silicon">硅</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Cryolite">冰晶石矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Sodium">钠</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Diamond">钻石</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Carbon">碳</a> (x3)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Esperite">硅钙铅锌矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x2) <a href="https://barotraumagame.com/wiki/Lead">铅</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Galena">方铅矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Lead">铅</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Graphite">石墨</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Carbon">碳</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Hydroxyapatite">羟磷灰石</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Calcium">钙</a> <a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Ilmenite">钛铁矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium">钛</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Iron_Ore">铁矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Iron">铁</a> (x4)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Langbeinite">软钾镁矾矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Potassium">钾</a> <a href="https://barotraumagame.com/wiki/Magnesium">镁</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Lazulite">天蓝石矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> <a href="https://barotraumagame.com/wiki/Iron">铁</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Oxygenite_Shard">氧矿碎片</a></td>
+<td>无</td>
+<td>无</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Liquid_Oxygenite">液态氧矿</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Polyhalite">杂卤石</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Potassium">钾</a> <a href="https://barotraumagame.com/wiki/Calcium">钙</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Pyromorphite">磷氯铅矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Chlorine">氯</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Quartz">石英</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Silicon">硅</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Sphalerite">闪锌矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Zinc">锌</a> (x3)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Stannite">黄锡矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Copper">铜</a> <a href="https://barotraumagame.com/wiki/Iron">铁</a> <a href="https://barotraumagame.com/wiki/Tin">锡</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Sylvite">钾盐矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Sodium">钠</a> <a href="https://barotraumagame.com/wiki/Potassium">钾</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Thorianite">方钍石矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Thorium">钍</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Titanite">榍石矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Titanium">钛</a> (x3) <a href="https://barotraumagame.com/wiki/Iron">铁</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Triphylite">磷酸锂铁矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Lithium">锂</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Uranium_Ore">铀矿</a></td>
+<td>无</td>
+<td>无</td>
+<td>5</td>
+<td><a href="https://barotraumagame.com/wiki/Uranium">铀</a> (x3)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="稀有战利品与打捞物">稀有战利品与打捞物 </h3>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>材料</th>
+<th>制造天赋 / 技能 / 时间</th>
+<th>解构时间</th>
+<th>解构产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Hammerhead_Ribs">锤头煞肋排</a></td>
+<td>无</td>
+<td>无</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Phosphorus">磷</a> (x2) <a href="https://barotraumagame.com/wiki/Carbon">碳</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Endworm_Shell_Fragment">末日蠕虫甲壳片</a></td>
+<td>无</td>
+<td>无</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Physicorium_Bar">刚素棒</a> (x6) <a href="https://barotraumagame.com/wiki/Carbon">碳</a> (x4)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Hallucinogenic_Bufotoxin">致幻性生物毒素</a></td>
+<td>无</td>
+<td>无</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Saline">生理盐水</a> <a href="https://barotraumagame.com/wiki/Paralyxis">麻痹源</a></td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Swim_Bladder">自愈囊泡</a></td>
+<td>无</td>
+<td>无</td>
+<td>10</td>
+<td><a href="https://barotraumagame.com/wiki/Stabilozine">疗素</a> (x2) <a href="https://barotraumagame.com/wiki/Saline">生理盐水</a> (x3)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Sulphurite_Shard">硫酸矿碎片</a></td>
+<td>无</td>
+<td>无</td>
+<td>20</td>
+<td><a href="https://barotraumagame.com/wiki/Sulphuric_Acid">硫酸</a> (x2)</td>
+</tr>
+<tr>
+<td><a href="https://barotraumagame.com/wiki/Diver%27s_Remains">潜水员的遗骸</a></td>
+<td>无</td>
+<td>无</td>
+<td>10</td>
+<td>以下随机两项：<a href="https://barotraumagame.com/wiki/Rubber">橡胶</a> (28%) <a href="https://barotraumagame.com/wiki/Iron">铁</a> (11%) <a href="https://barotraumagame.com/wiki/Steel_Bar">钢筋</a> (6%) <a href="https://barotraumagame.com/wiki/Carbon">碳</a> (28%) <a href="https://barotraumagame.com/wiki/Aluminum">铝</a> (28%)</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
